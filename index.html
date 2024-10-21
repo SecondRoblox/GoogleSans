@@ -3,18 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     Change Example the custom font using @font-face */
+    <style>
         @font-face {
-            font-family: 'GoogleSans'; /* Assign a name to the font */
-            src: url('googlesans.ttf') format('truetype'); /* Link to the font file */
+            font-family: 'GoogleSans';
+            src: url('googlesans.tff') format('truetype');
         }
-
-        /* Apply the custom font to the entire body */
         body {
-            font-family: 'GoogleSans', sans-serif; /* Fallback to sans-serif */
+            font-family: 'GoogleSans', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
+        textarea {
+            width: 80%;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+        .output {
+            width: 80%;
+            height: 50%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="textInput" placeholder="Type something..."></textarea>
+    <div class="output" id="outputArea"></div>
     
-    
-
-Welcome to My Web Page
-    This text is displayed using Google Sans font.
+    <script>
+        const textInput = document.getElementById('textInput');
+        const outputArea = document.getElementById('outputArea');
+        
+        textInput.addEventListener('input', () => {
+            outputArea.textContent = textInput.value;
+        });
+    </script>
+</body>
+</html>
